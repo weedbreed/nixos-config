@@ -16,6 +16,10 @@
     vivaldi vivaldi-widevine vivaldi-ffmpeg-codecs
     tdesktop
     spotify
+    inkscape
+    pinta
+    gimp
+    blender
   ];
 
 }

@@ -19,5 +19,6 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     unstable.gnomeExtensions.material-shell
+    unstable.gnomeExtensions.system-monitor
   ];
 }

@@ -74,16 +74,6 @@
 
   nixpkgs.config.allowUnfree = true; 
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  # environment.systemPackages = with pkgs; [
-  #   wget ne
-  #   gnome3.gnome-tweak
-  #   thunderbird
-  #   vivaldi vivaldi-widevine vivaldi-ffmpeg-codecs
-  #   telegram-desktop
-  # ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -95,6 +85,7 @@
   programs.bash.shellAliases = {
     ll = "ls -lah";
     ls = "ls --color=tty";
+    cfg = "su -c 'cd /etc/nixos; bash'";
   };
 
   # List services that you want to enable:
