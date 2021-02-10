@@ -12,14 +12,20 @@
     plata-theme
     termite-unwrapped
     gnome3.gnome-tweaks
+
     thunderbird
     vivaldi vivaldi-widevine vivaldi-ffmpeg-codecs
-    tdesktop
+    
+    tdesktop zoom slack gitter skype
+    
     spotify
+    
     inkscape
     pinta
     gimp
     blender
+    
+    libreoffice
   ];
 
 }
