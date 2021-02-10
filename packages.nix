@@ -15,6 +15,7 @@
     thunderbird
     vivaldi vivaldi-widevine vivaldi-ffmpeg-codecs
     tdesktop
+    spotify
   ];
 
 }
