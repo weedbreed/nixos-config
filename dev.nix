@@ -8,9 +8,10 @@
 
   environment.systemPackages = with pkgs; [
     git
+
     nodejs nodePackages.npm
-    jdk11
-    sbt
+
+    jdk11 scala sbt
   ];
 
 }
