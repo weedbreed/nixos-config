@@ -12,6 +12,8 @@
     nodejs nodePackages.npm
 
     jdk11 scala sbt
+
+    php
   ];
 
 }
