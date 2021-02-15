@@ -6,11 +6,19 @@
 
 with lib;
 
+let home-manager = builtins.fetchGit {
+    url = "https://github.com/rycee/home-manager.git";
+    # rev = "1ee1d01daa19b3a6d16b5fb680c31a2bc110ce24";
+    ref = "release-20.09";
+  };
+in
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./packages.nix
+      (import "${home-manager}/nixos")
+      # (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
     ];
 
   # Use the GRUB 2 boot loader.
@@ -76,6 +84,8 @@ with lib;
 
   nixpkgs.config.allowUnfree = true; 
 
+  environment.sessionVariables.TERMINAL = [ "termite" ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -84,7 +94,7 @@ with lib;
   #   enableSSHSupport = true;
   # };
 
-  programs.bash ={
+  programs.bash = {
     shellAliases = {
       ll = "ls -lah";
       ls = "ls --color=tty";
@@ -112,9 +122,41 @@ with lib;
         git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
       }
 
-      PS1="$PS1\$(parse_git_branch)"
-      # PS1="$PS1$(git branch | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/ ') "
+      PS1="$PS1\[\033[0;33m\]\$(parse_git_branch)\[\033[0m\]"
     '';
+  };
+
+  home-manager.users.root = {
+    programs.home-manager = {
+      enable = true;
+      path = "…";
+    };
+
+    programs.git = {
+      enable = true;
+      userName = "Aleksandr Bogdanov (at root)";
+      userEmail = "sasha_bogdanov_dev@yahoo.com";
+    };
+  };
+
+  home-manager.users.laniakea = {
+    programs.home-manager = {
+      enable = true;
+      path = "…";
+    };
+
+    programs.git = {
+      enable = true;
+      userName = "Aleksandr Bogdanov";
+      userEmail = "sasha_bogdanov_dev@yahoo.com";
+    };
+
+    programs.termite = {
+      enable = true;
+      backgroundColor = "rgba(0,0,0,1.0)";
+      font = "Monospace 10";
+      allowBold = true;
+    };
   };
 
   # List services that you want to enable:

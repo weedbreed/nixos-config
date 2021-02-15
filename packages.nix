@@ -8,6 +8,8 @@
     ];
 
   environment.systemPackages = with pkgs; [
+    home-manager
+    
     wget ne screenfetch
     
     plata-theme
