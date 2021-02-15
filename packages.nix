@@ -19,7 +19,7 @@
     thunderbird
     vivaldi vivaldi-widevine vivaldi-ffmpeg-codecs
     
-    tdesktop zoom slack gitter skype
+    tdesktop zoom-us slack gitter skype
     
     spotify
     

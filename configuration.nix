@@ -2,7 +2,9 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
+
+with lib;
 
 {
   imports =
@@ -82,10 +84,37 @@
   #   enableSSHSupport = true;
   # };
 
-  programs.bash.shellAliases = {
-    ll = "ls -lah";
-    ls = "ls --color=tty";
-    cfg = "su -c 'cd /etc/nixos; bash'";
+  programs.bash ={
+    shellAliases = {
+      ll = "ls -lah";
+      ls = "ls --color=tty";
+      cfg = "su -c 'cd /etc/nixos; bash'";
+      pg = "ping -c 3 8.8.8.8";
+    };
+
+    promptInit = ''
+      # Provide a nice prompt if the terminal supports it.
+      if [ "$TERM" != "dumb" -o -n "$INSIDE_EMACS" ]; then
+        PROMPT_COLOR="1;31m"
+        let $UID && PROMPT_COLOR="1;32m"
+        if [ -n "$INSIDE_EMACS" -o "$TERM" == "eterm" -o "$TERM" == "eterm-color" ]; then
+          # Emacs term mode doesn't support xterm title escape sequence (\e]0;)
+          PS1="\n\[\033[$PROMPT_COLOR\][\u@\h:\w]\\$\[\033[0m\] "
+        else
+          PS1="\n\[\033[$PROMPT_COLOR\][\[\e]0;\u@\h: \w\a\]\u@\h:\w]\\$\[\033[0m\] "
+        fi
+        if test "$TERM" = "xterm"; then
+          PS1="\[\033]2;\h:\u:\w\007\]$PS1"
+        fi
+      fi
+
+      parse_git_branch() {
+        git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+      }
+
+      PS1="$PS1$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/') "
+      # PS1="$PS1$(git branch | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/ ') "
+    '';
   };
 
   # List services that you want to enable:
