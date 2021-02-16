@@ -6,7 +6,7 @@
       ./vscode-with-extensions.nix
     ];
 
-  environment.systemPackages = with pkgs; [
+  home-manager.users.laniakea.home.packages = with pkgs; [
     git
 
     nodejs nodePackages.npm

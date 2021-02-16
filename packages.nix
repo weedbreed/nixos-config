@@ -11,12 +11,15 @@
     home-manager
     
     wget ne screenfetch
-    
+
     plata-theme
     termite-unwrapped
     gnome3.gnome-tweaks
 
     htop unzip
+  ];
+
+  home-manager.users.laniakea.home.packages = with pkgs; [
 
     thunderbird
     vivaldi vivaldi-widevine vivaldi-ffmpeg-codecs
