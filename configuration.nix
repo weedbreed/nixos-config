@@ -79,12 +79,14 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.laniakea = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "audio" "docker" ]; # Enable ‘sudo’ for the user.
   };
 
   nixpkgs.config.allowUnfree = true; 
 
   environment.sessionVariables.TERMINAL = [ "termite" ];
+
+  virtualisation.docker.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -134,7 +136,7 @@ in
 
     programs.git = {
       enable = true;
-      userName = "Aleksandr Bogdanov (at root)";
+      userName = "Aleksandr Bogdanov (as root)";
       userEmail = "sasha_bogdanov_dev@yahoo.com";
     };
   };

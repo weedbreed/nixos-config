@@ -14,6 +14,8 @@
     jdk11 scala sbt
 
     php
+
+    docker
   ];
 
 }
