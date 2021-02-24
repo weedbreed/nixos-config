@@ -4,6 +4,7 @@
   imports = 
     [
       ./vscode-with-extensions.nix
+      ./mysql.nix
     ];
 
   home-manager.users.laniakea.home.packages = with pkgs; [
@@ -18,6 +19,8 @@
     docker
 
     jetbrains.idea-ultimate
+
+    dbeaver
   ];
 
 }
