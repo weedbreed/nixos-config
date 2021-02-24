@@ -16,6 +16,8 @@
     php
 
     docker
+
+    jetbrains.idea-ultimate
   ];
 
 }

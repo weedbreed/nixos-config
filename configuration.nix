@@ -16,6 +16,7 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./local.nix
       ./packages.nix
       (import "${home-manager}/nixos")
       # (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
@@ -44,7 +45,7 @@ in
   networking.useDHCP = false;
   networking.interfaces.wlp58s0.useDHCP = true;
 
-  networking.hostName = "laniakea-xps-nixos";
+  # networking.hostName = "laniakea-g5-nixos";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
