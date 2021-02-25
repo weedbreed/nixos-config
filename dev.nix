@@ -12,7 +12,7 @@
 
     nodejs nodePackages.npm
 
-    jdk11 scala sbt
+    jdk14 scala sbt
 
     php
 

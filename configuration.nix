@@ -103,6 +103,8 @@ in
       ls = "ls --color=tty";
       cfg = "su -c 'cd /etc/nixos; bash'";
       pg = "ping -c 3 8.8.8.8";
+
+      tunnel-ums-mysql = "ssh -f -N ums-mysql";
     };
 
     promptInit = ''

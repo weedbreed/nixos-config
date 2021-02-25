@@ -9,7 +9,10 @@
 
   environment.systemPackages = with pkgs; [
     home-manager
-    
+  
+    pciutils
+    pavucontrol
+  
     wget ne screenfetch
 
     plata-theme
