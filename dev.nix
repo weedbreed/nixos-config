@@ -7,12 +7,17 @@
       ./mysql.nix
     ];
 
+  environment.systemPackages = with pkgs; [
+    jdk14
+    python3
+  ];
+
   home-manager.users.laniakea.home.packages = with pkgs; [
     git
 
     nodejs nodePackages.npm
 
-    jdk14 scala sbt
+    scala sbt
 
     php
 
