@@ -5,6 +5,7 @@
     [
       ./vscode-with-extensions.nix
       ./mysql.nix
+      ./ccfs.nix
     ];
 
   environment.systemPackages = with pkgs; [

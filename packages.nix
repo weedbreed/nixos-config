@@ -9,11 +9,13 @@
 
   environment.systemPackages = with pkgs; [
     home-manager
-  
+    skopeo
+
     pciutils
     pavucontrol
-  
-    wget ne screenfetch
+
+    bash binutils stdenv wget dpkg nix-index stdenv.cc patchelf
+    ne screenfetch
 
     plata-theme
     termite-unwrapped
@@ -28,7 +30,9 @@
     vivaldi vivaldi-widevine vivaldi-ffmpeg-codecs
     
     tdesktop zoom-us slack gitter skype
-    
+
+    gnomeExtensions.system-monitor
+
     spotify
     
     inkscape

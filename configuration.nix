@@ -129,6 +129,8 @@ in
 
       PS1="$PS1\[\033[0;33m\]\$(parse_git_branch)\[\033[0m\]"
     '';
+
+    
   };
 
   home-manager.users.root = {
