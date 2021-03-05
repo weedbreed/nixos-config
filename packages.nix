@@ -31,8 +31,6 @@
     
     tdesktop zoom-us slack gitter skype
 
-    gnomeExtensions.system-monitor
-
     spotify
     
     inkscape

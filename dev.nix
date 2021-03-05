@@ -27,6 +27,8 @@
     jetbrains.idea-ultimate
 
     dbeaver
+
+    postman
   ];
 
 }
