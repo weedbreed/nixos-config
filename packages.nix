@@ -11,10 +11,13 @@
     home-manager
     skopeo
 
+    lshw 
     pciutils
+    alsa-firmware
     pavucontrol
 
     bash binutils stdenv wget dpkg nix-index stdenv.cc patchelf
+    xclip
     ne screenfetch
 
     plata-theme

@@ -53,7 +53,7 @@ in
 
   services.blueman.enable = true; 
 
- # Select internationalisation properties.
+  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "cyr-sun16";
@@ -75,6 +75,13 @@ in
   # Enable sound.
   # sound.enable = true;
   # hardware.pulseaudio.enable = true;
+
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.support32Bit = true;
+  hardware.enableAllFirmware = true;
+  hardware.enableRedistributableFirmware = true;
+  hardware.cpu.intel.updateMicrocode = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -107,6 +114,7 @@ in
       pg = "ping -c 3 8.8.8.8";
 
       tunnel-ums-mysql = "ssh -f -N ums-mysql";
+      tunnel-mt-mysql  = "ssh -f -N mt-mysql";
     };
 
     promptInit = ''
@@ -129,7 +137,7 @@ in
         git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
       }
 
-      PS1="$PS1\[\033[0;33m\]\$(parse_git_branch)\[\033[0m\]"
+      PS1="$PS1\[\033[0;33m\]\$(parse_git_branch)\[\033[0m\]\n▸ "
     '';
 
     

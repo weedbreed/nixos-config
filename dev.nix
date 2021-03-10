@@ -14,7 +14,7 @@
   ];
 
   home-manager.users.laniakea.home.packages = with pkgs; [
-    git
+    git jq
 
     nodejs nodePackages.npm
 
