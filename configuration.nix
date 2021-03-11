@@ -115,8 +115,9 @@ in
 
       nstulpn = "netstat -tulpn";
 
-      tunnel-ums-mysql = "ssh -f -N ums-mysql";
-      tunnel-mt-mysql  = "ssh -f -N mt-mysql";
+      tunnel-adalisk-ums-mysql = "ssh -f -N adalisk-ums-mysql";
+      tunnel-adalisk-mt-mysql  = "ssh -f -N adalisk-mt-mysql";
+      tunnel-adalisk-cms-mysql = "ssh -f -N adalisk-cms-mysql";
     };
 
     promptInit = ''
