@@ -113,6 +113,8 @@ in
       cfg = "su -c 'cd /etc/nixos; bash'";
       pg = "ping -c 3 8.8.8.8";
 
+      nstulpn = "netstat -tulpn";
+
       tunnel-ums-mysql = "ssh -f -N ums-mysql";
       tunnel-mt-mysql  = "ssh -f -N mt-mysql";
     };

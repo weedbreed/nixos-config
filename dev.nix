@@ -22,7 +22,7 @@
 
     php
 
-    docker
+    docker docker-compose
 
     jetbrains.idea-ultimate
 
