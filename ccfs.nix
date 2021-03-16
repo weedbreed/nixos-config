@@ -33,7 +33,10 @@ let
     };
   };
 in {
-  nix.useSandbox = false;
+  # nix.useSandbox = false;
+  environment.variables.CCFSInstall = "False";
+  environment.variables.Fiddler = "False";
+
   virtualisation.oci-containers.containers = {
     ccfs = {
       image = "ccfs";

@@ -14,10 +14,4 @@ in
       };
     };
   };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  home-manager.users.laniakea.home.packages = with pkgs; [
-    unstable.gnomeExtensions.material-shell
-  ];
 }

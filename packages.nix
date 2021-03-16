@@ -5,9 +5,12 @@
     [
       ./unstable.nix
       ./dev.nix
+      ./blender.nix
     ];
 
   environment.systemPackages = with pkgs; [
+    # dmenu
+
     home-manager
     skopeo
 
@@ -29,6 +32,8 @@
   ];
 
   home-manager.users.laniakea.home.packages = with pkgs; [
+    unstable.gnomeExtensions.system-monitor
+    unstable.gnomeExtensions.material-shell
 
     thunderbird
     vivaldi vivaldi-widevine vivaldi-ffmpeg-codecs
@@ -40,7 +45,6 @@
     inkscape
     pinta
     gimp
-    blender
     vlc
     
     libreoffice

@@ -90,7 +90,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.laniakea = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "audio" "docker" ];
   };
 
   nixpkgs.config.allowUnfree = true; 
@@ -142,9 +142,7 @@ in
       }
 
       PS1="$PS1\[\033[0;33m\]\$(parse_git_branch)\[\033[0m\]\n▸ "
-    '';
-
-    
+    '';    
   };
 
   home-manager.users.root = {
@@ -180,6 +178,22 @@ in
     };
   };
 
+  security.sudo.configFile = ''
+    # Keep SSH_AUTH_SOCK so that pam_ssh_agent_auth.so can do its magic.
+    Defaults env_keep+=SSH_AUTH_SOCK
+    Defaults rootpw
+
+    # "root" is allowed to do anything.
+    root        ALL=(ALL:ALL) SETENV: ALL
+
+    # extraRules
+    %wheel	ALL=(ALL:ALL)	SETENV: ALL
+
+    # Keep terminfo database for root and %wheel.
+    Defaults:root,%wheel env_keep+=TERMINFO_DIRS
+    Defaults:root,%wheel env_keep+=TERMINFO    
+  '';
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
@@ -198,6 +212,5 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.09"; # Did you read the comment?
-
 }
 
