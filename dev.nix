@@ -11,6 +11,8 @@
   environment.systemPackages = with pkgs; [
     jdk14
     python3
+
+    squid
   ];
 
   home-manager.users.laniakea.home.packages = with pkgs; [

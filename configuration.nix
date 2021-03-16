@@ -16,6 +16,7 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./nvidia.nix
       ./local.nix
       ./packages.nix
       (import "${home-manager}/nixos")

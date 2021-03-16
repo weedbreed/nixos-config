@@ -12,6 +12,7 @@
     skopeo
 
     lshw 
+    transmission_gtk
     pciutils
     alsa-firmware
     pavucontrol
@@ -40,6 +41,7 @@
     pinta
     gimp
     blender
+    vlc
     
     libreoffice
   ];
