@@ -9,7 +9,7 @@
     ];
 
   environment.systemPackages = with pkgs; [
-    # dmenu
+    openssl
 
     home-manager
     skopeo

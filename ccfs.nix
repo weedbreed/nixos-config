@@ -9,39 +9,34 @@ let
     arch = "amd64";
   };
 
-  ccfsPath = builtins.path { path = ./.ccfs; name = "ccfs"; };
-
-  ccfsImg = builtins.path { path = ./ccfs.dimg; };
-
+  ccfsDebsPath = builtins.path { path = ./ccfs; name = "ccfs"; };
   ccfsImage = pkgs.dockerTools.buildImage {
-    name = "ccfs-image";
+    name = "ccfs";
     tag = "latest";
     fromImage = ubuntuImage;
 
-    contents = [ ccfsPath ];
+    contents = [ ccfsDebsPath ];
     runAsRoot = ''
-      apt update
-      apt install libunwind8 icu-devtools openssl -y
-      dpkg -i /ccfs.deb
-      mkdir /mnt/ccfsshare
+      export PATH=/usr/sbin:$PATH
+      dpkg -i /*.deb
+      mkdir /media/ccfsshare
     '';
 
     config = {
-      ExposedPorts = { "7201" = {}; "80" = {}; };
-      Env = [ "Fiddler=False" "CCFSInstall=False" ];
+      ExposedPorts = { "7201" = {}; };
       Entrypoint = [ "/usr/local/bin/ccfs/CCFSNetCore" ];
     };
   };
 in {
-  # nix.useSandbox = false;
   environment.variables.CCFSInstall = "False";
   environment.variables.Fiddler = "False";
 
   virtualisation.oci-containers.containers = {
     ccfs = {
       image = "ccfs";
-      imageFile = ccfsImg; # "ccfs-image:latest";
-      ports = [ "7201:7201" ];
+      imageFile = ccfsImage;
+      volumes = [ "/media/ccfsshare:/media/ccfsshare" ];
+      extraOptions = ["--network=host"];
     };
   };
 }
