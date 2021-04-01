@@ -32,11 +32,11 @@
   ];
 
   home-manager.users.laniakea.home.packages = with pkgs; [
-    unstable.gnomeExtensions.system-monitor
-    unstable.gnomeExtensions.material-shell
+    # unstable.gnomeExtensions.material-shell
 
     thunderbird
     vivaldi vivaldi-widevine vivaldi-ffmpeg-codecs
+    torbrowser
     
     tdesktop zoom-us slack gitter skype
 
