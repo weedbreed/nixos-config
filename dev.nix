@@ -9,7 +9,7 @@
     ];
 
   environment.systemPackages = with pkgs; [
-    jdk14_headless
+    oraclejdk14
     python3
   ];
 

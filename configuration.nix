@@ -33,7 +33,7 @@ in
   # boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
   boot.loader.systemd-boot.enable = true;
-
+  
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
