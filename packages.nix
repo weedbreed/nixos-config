@@ -6,7 +6,6 @@
       ./unstable.nix
       ./dev.nix
       ./blender.nix
-      ./virtualbox.nix
     ];
 
   environment.systemPackages = with pkgs; [

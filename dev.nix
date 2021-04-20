@@ -9,7 +9,7 @@
     ];
 
   environment.systemPackages = with pkgs; [
-    oraclejdk14
+    jetbrains.jdk
     python3
   ];
 
