@@ -4,7 +4,7 @@
   imports = 
     [
       ./vscode-with-extensions.nix
-      ./mysql.nix
+      # ./mysql.nix
       ./ccfs.nix
     ];
 

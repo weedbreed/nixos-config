@@ -8,7 +8,6 @@ with lib;
 
 let home-manager = builtins.fetchGit {
     url = "https://github.com/rycee/home-manager.git";
-    # rev = "1ee1d01daa19b3a6d16b5fb680c31a2bc110ce24";
     ref = "release-20.09";
   };
 in
@@ -16,11 +15,10 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./nvidia.nix
-      ./local.nix
+      # ./nvidia.nix
       ./packages.nix
+      ./local.nix
       (import "${home-manager}/nixos")
-      # (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
     ];
 
   # Use the GRUB 2 boot loader.
@@ -98,6 +96,9 @@ in
   environment.sessionVariables.TERMINAL = [ "termite" ];
 
   virtualisation.docker.enable = true;
+
+  networking.wireguard.enable = true;
+  services.mullvad-vpn.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
